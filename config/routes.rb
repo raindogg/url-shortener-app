@@ -9,7 +9,12 @@ Rails.application.routes.draw do
      unauthenticated do
        root 'devise/registrations#new', as: :unauthenticated_root
      end
-   end
+  end
 
-   get '/links' => 'links#index'
+  get '/links' => 'links#index'
+  get '/new' => 'links#new'
+  post '/links' => 'links#create'
+  get '/links/:slug' => 'links#show'
+
+  
 end
