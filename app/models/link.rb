@@ -1,5 +1,15 @@
 class Link < ApplicationRecord
   belongs_to :user
+  has_many :visits
+
+  validates :target_url, :presence => true
+  validates :slug, :presence => true
+  validates :slug, :uniqueness => true
+
+  def standardize_target_url!
+    target_url.gsub!("http://", "")
+    target_url.gsub!("https://", "")
+  end
 
   def generate_slug
     alph = ('a'..'z').to_a
@@ -10,5 +20,9 @@ class Link < ApplicationRecord
       new_slug += range.sample
     end
     self.slug = new_slug
+  end
+
+  def visit_count
+    visits.count
   end
 end

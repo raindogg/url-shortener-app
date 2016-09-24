@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   post '/links' => 'links#create'
   get '/links/:slug' => 'links#show'
 
-  
+  get '/visits/:id' => 'visits#show'
 end
