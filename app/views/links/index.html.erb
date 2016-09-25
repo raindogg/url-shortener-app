@@ -12,6 +12,7 @@
       <td><%= link.target_url %></td>
       <td><%= link.created_at %></td>
       <td><%= link_to 'edit this link', "/links/#{link.id}/edit" %>
+      <td><%= link_to 'delete this link', "/links/#{link.id}", method: :delete %></td>
     </tr>
   <% end %>
 <table>

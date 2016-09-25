@@ -4,6 +4,7 @@ class LinksController < ApplicationController
   end
 
   def new
+    @link = Link.new
   end
 
   def create
@@ -37,5 +38,15 @@ class LinksController < ApplicationController
 
     redirect_to '/links'
     flash[:success] = "Link updated"
+  end
+
+  def destroy
+    @link = Link.find(params[:id])
+
+    flash[:warning] = "Link deleted."
+
+    @link.destroy
+
+    redirect_to '/links'
   end
 end
