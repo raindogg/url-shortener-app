@@ -4,4 +4,8 @@ class User < ApplicationRecord
   has_many :links
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def current_links
+    links.all
+  end
 end

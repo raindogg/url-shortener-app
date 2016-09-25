@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   def index
-    @links = Link.all
+    @links = current_user.current_links
   end
 
   def new

@@ -15,4 +15,6 @@
       <td><%= link_to 'delete this link', "/links/#{link.id}", method: :delete %></td>
     </tr>
   <% end %>
-<table>
+</table>
+
+<%= link_to 'Log out', '/users/sign_out', method: :delete %>
